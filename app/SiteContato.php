@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SiteContato extends Model
 {
     //
-    /*use SoftDeletes;
+    
     protected $table = 'site_contatos';
-    protected $fillable = ['name','telefone','email','motivo_contato','mensagem'];*/
+    protected $fillable = ['name','telefone','email','motivo_contato','mensagem'];
 }
