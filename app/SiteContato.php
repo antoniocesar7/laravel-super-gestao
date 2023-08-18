@@ -11,4 +11,4 @@ class SiteContato extends Model
     
     protected $table = 'site_contatos';
     protected $fillable = ['name','telefone','email','motivo_contato','mensagem'];
-}
+}   
