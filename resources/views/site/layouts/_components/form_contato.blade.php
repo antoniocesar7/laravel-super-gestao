@@ -1,15 +1,19 @@
 {{$slot}}
-{{$classe}}
+{{-- {{$classe}} --}}
 <form action=" {{route('site.contato')}}" method="post">
     @csrf
 
     <input name="nome" value="{{old('nome')}}" type="text" placeholder="Nome" class="{{$classe}}">
     <br>
+        @if ($errors->has('nome'))
+            {{$errors->first('nome')}}
+        @endif
     <input name="telefone" value="{{old('telefone')}}" type="text" placeholder="Telefone" class="{{$classe}}">
     <br>
+        {{$errors->has('telefone')? $errors->first('telefone'):''}}
     <input name="email" value="{{old('email')}}" type="text" placeholder="E-mail" class="{{$classe}}">
     <br>
-
+        {{$errors->has('email')? $errors->first('email'):''}}
     {{-- {{print_r($motivo_contatos)}} --}}
     
     <select name="motivo_contatos_id"  class="{{$classe}}">
@@ -20,6 +24,7 @@
         @endforeach
         
     </select>
+        {{$errors->has('motivo_contatos_id')? $errors->first('motivo_contatos_id'):''}}
     <br>
     <textarea name="mensagem"  class="{{$classe}}">
         @if (old('mensagem')!='')
@@ -28,6 +33,7 @@
             Preencha aqui a sua mensagem
         @endif
     </textarea>
+        {{$errors->has('mensagem')? $errors->first('mensagem'):''}}
     <br>
     <button type="submit" class="{{$classe}}">ENVIAR</button>
 </form>
