@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
     ->middleware(LogAcessoMiddleware::class);*/
     //Ou podemos escrever conforme abaixo que tem um sentido lógico mais claro:
         //rota raiz
-Route::get('/','PrincipalController@principal')->name('site.index');
+Route::get('/','PrincipalController@principal')->name('site.index')->middleware('log.acesso');
 
         //rota sobre nós
 Route::get('/sobre-nos','SobreNosController@sobreNos')->name('site.sobrenos');
