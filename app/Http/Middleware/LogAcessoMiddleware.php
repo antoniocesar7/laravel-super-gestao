@@ -29,8 +29,8 @@ class LogAcessoMiddleware
 
         //LogAcesso::create(['log' => 'IP xyz requisitou a rota abcd']);
 
-        return Response('Chegamos no middaleware e finalizamos nele próprio');
-
+        // Response('Chegamos no middaleware e finalizamos nele próprio');
+        return $next($request);
         //Response
     }
 }
