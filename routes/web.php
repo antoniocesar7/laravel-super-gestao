@@ -32,6 +32,24 @@ Route::post('/contato','ContatoController@salvar')->name('site.contato');
 Route::get('/login', function () {
     return 'Login';
 })->name('site.login');
-// Route::prefix('/app')->group(function(){
-//     Route::get('/clientes', function(){return 'Clientes';});
-// });
+
+//Grupo de rotas app
+Route::prefix('/app')->group(function(){
+        //rota cliente
+    Route::middleware('log.acesso','autenticacao')
+                ->get('/clientes', function(){return 'Clientes';})->name('app.clientes');
+
+        //rota fornecedores
+    Route::middleware('log.acesso','autenticacao')
+                ->get("/fornecedores","FornecedorController@index")->name('app.fornecedores');
+
+        //rota produtos
+    Route::middleware('log.acesso','autenticacao')
+                ->get('produtos',function(){return 'produtos';})->name('app.produtos');
+});
+
+Route::get('/teste/{p1}/{p1}','TesteController@teste')->name('teste');
+
+Route::fallback(function(){
+        echo 'A rota acessada não existe.<a href="'.route('site.index').'">clique aqui</a>';
+});
