@@ -36,19 +36,19 @@ Route::get('/login', function () {
 //Grupo de rotas app
 Route::prefix('/app')->group(function(){
         //rota cliente
-    Route::middleware('log.acesso','autenticacao')
+    Route::middleware('autenticacao')
                 ->get('/clientes', function(){return 'Clientes';})->name('app.clientes');
 
         //rota fornecedores
-    Route::middleware('log.acesso','autenticacao')
+    Route::middleware('autenticacao')
                 ->get("/fornecedores","FornecedorController@index")->name('app.fornecedores');
 
         //rota produtos
-    Route::middleware('log.acesso','autenticacao')
+    Route::middleware('autenticacao')
                 ->get('produtos',function(){return 'produtos';})->name('app.produtos');
 });
 
-Route::get('/teste/{p1}/{p1}','TesteController@teste')->name('teste');
+//Route::get('/teste/{p1}/{p1}','TesteController@teste')->name('teste');
 
 Route::fallback(function(){
         echo 'A rota acessada não existe.<a href="'.route('site.index').'">clique aqui</a>';
