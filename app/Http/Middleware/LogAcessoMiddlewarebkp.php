@@ -1,9 +1,10 @@
-<?php
+/*<?php
 
 namespace App\Http\Middleware;
 
-use Closure;
 use App\LogAcesso;
+use Closure;
+use Facade\FlareClient\Http\Response;
 
 class LogAcessoMiddleware
 {
@@ -16,18 +17,21 @@ class LogAcessoMiddleware
      */
     public function handle($request, Closure $next)
     {
+        //1º Request 
+
+        //return $next($request);
+
+        //dd($request);
 
         $ip = $request->server->get('REMOTE_ADDR');
         $rota = $request->getRequestUri();
         LogAcesso::create(['log' => "IP $ip requisitou a rota $rota"]);
 
-        // return $next($request);
+        //LogAcesso::create(['log' => 'IP xyz requisitou a rota abcd']);
+
+        // Response('Chegamos no middaleware e finalizamos nele próprio');
+        //return $next($request);
 
         $resposta = $next($request);
-
-        $resposta->setStatusCode(201, 'O status da resposta e o texto da resposta foram modificados!!!');
-
-        return $resposta;
-
     }
 }
