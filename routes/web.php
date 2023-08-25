@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Middleware\LogAcessoMiddleware;
+//use App\Http\Middleware\LogAcessoMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,20 +19,19 @@ use Illuminate\Support\Facades\Route;
     ->middleware(LogAcessoMiddleware::class);*/
     //Ou podemos escrever conforme abaixo que tem um sentido lógico mais claro:
         //rota raiz
-Route::middleware(LogAcessoMiddleware::class)
-->get('/','PrincipalController@principal')   
-->name('site.index');
+Route::get('/','PrincipalController@principal')->name('site.index');
 
         //rota sobre nós
 Route::get('/sobre-nos','SobreNosController@sobreNos')->name('site.sobrenos');
 
         //rota contato
-Route::middleware(LogAcessoMiddleware::class)
-    ->get('/contato','ContatoController@contato')
-    ->name('site.contato');
+Route::get('/contato','ContatoController@contato')->name('site.contato');
         //post contato
 Route::post('/contato','ContatoController@salvar')->name('site.contato');
 
+Route::get('/login', function () {
+    return 'Login';
+})->name('site.login');
 // Route::prefix('/app')->group(function(){
 //     Route::get('/clientes', function(){return 'Clientes';});
 // });
