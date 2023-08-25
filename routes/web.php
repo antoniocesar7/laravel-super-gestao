@@ -34,7 +34,7 @@ Route::get('/login', function () {
 })->name('site.login');
 
 //Grupo de rotas app
-Route::middleware('autenticacao')->prefix('/app')->group(function(){
+Route::middleware('autenticacao:padrao,visitante,p3,p4')->prefix('/app')->group(function(){
         //rota cliente
     Route::get('/clientes', function(){return 'Clientes';})->name('app.clientes');
 
