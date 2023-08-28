@@ -34,14 +34,19 @@ Route::post('/login','LoginController@autenticar')->name('site.login');
 
 //Grupo de rotas app
 Route::middleware('autenticacao:padrao,visitante,p3,p4')->prefix('/app')->group(function(){
+        
+        Route::get('/home', 'HomeController@index')->name('app.home');
+
+        Route::get('/sair', 'LoginController@sair')->name('app.sair');
+
         //rota cliente
-    Route::get('/clientes', function(){return 'Clientes';})->name('app.clientes');
+        Route::get('/cliente', 'ClienteController@index')->name('app.cliente');
 
         //rota fornecedores
-    Route::get("/fornecedores","FornecedorController@index")->name('app.fornecedores');
+        Route::get("/fornecedor","FornecedorController@index")->name('app.fornecedor');
 
         //rota produtos
-    Route::get('produtos',function(){return 'produtos';})->name('app.produtos');
+        Route::get('produto','ProdutoController@index')->name('app.produto');
 });
 
 //Route::get('/teste/{p1}/{p1}','TesteController@teste')->name('teste');
