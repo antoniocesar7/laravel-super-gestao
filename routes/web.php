@@ -29,7 +29,7 @@ Route::get('/contato','ContatoController@contato')->name('site.contato');
         //post contato
 Route::post('/contato','ContatoController@salvar')->name('site.contato');
 
-Route::get('/login','LoginController@index')->name('site.login');
+Route::get('/login/{erro?}','LoginController@index')->name('site.login');
 Route::post('/login','LoginController@autenticar')->name('site.login');
 
 //Grupo de rotas app
