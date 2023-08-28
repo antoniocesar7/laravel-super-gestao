@@ -59,7 +59,7 @@ class LoginController extends Controller
             $_SESSION['email'] = $usuario->email;
             //dd($_SESSION);
 
-            return redirect()->route('app.clientes');
+            return redirect()->route('app.home');
 
         }else{
             //echo 'Usuário não existe"';
@@ -68,5 +68,9 @@ class LoginController extends Controller
         /*echo '<pre>';
             print_r($usuario);
         echo '<pre>';*/
+    }
+
+    public function sair(){
+        echo 'SAIR!';
     }
 }
