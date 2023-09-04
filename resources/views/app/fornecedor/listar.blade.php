@@ -24,8 +24,8 @@
                                 <th>Site</th>
                                 <th>UF</th>
                                 <th>E-mail</th>
-                                <th></th>
-                                <th></th>
+                                <th>Excluir</th>
+                                <th>Editar</th>
                             </tr>
                         </thead>
 
@@ -36,8 +36,8 @@
                                     <td>{{$fornecedor->site}}</td>
                                     <td>{{$fornecedor->uf}}</td>
                                     <td>{{$fornecedor->email}}</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>EX</td>
+                                    <td><a href="{{route('app.fornecedor.editar', $fornecedor->id)}}">Editar</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
