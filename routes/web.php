@@ -52,7 +52,7 @@ Route::middleware('autenticacao:padrao,visitante,p3,p4')->prefix('/app')->group(
         Route::get('/fornecedor/excluir/{id}/{msg?}',"FornecedorController@excluir")->name('app.fornecedor.excluir');
 
         //rota produtos
-        Route::get('produto','ProdutoController@index')->name('app.produto');
+        Route::resource('produto','ProdutoController');
 });
 
 //Route::get('/teste/{p1}/{p1}','TesteController@teste')->name('teste');
