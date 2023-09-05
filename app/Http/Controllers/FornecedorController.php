@@ -85,4 +85,25 @@ class FornecedorController extends Controller
 
         return view('app.fornecedor.adicionar',['fornecedor' => $fornecedor, 'msg' => $msg]);
     }
+
+    public function excluir($id,$msg = ''){
+        echo "Tem certeza que deseja excluir $id";
+        if(Fornecedor::find($id)->delete()){//este usa o softdelete, não exclui do banco
+            echo "O $id foi excluido!";
+            return redirect()->route('app.fornecedor');
+        }else{
+            echo "Não foi possível excluir!";
+            return redirect()->route('app.fornecedor');
+        }
+
+       /* if(Fornecedor::find($id)->forceDelete()){//este exclui do banco
+            echo "O $id foi excluido!";
+            return redirect()->route('app.fornecedor');
+        }else{
+            echo "Não foi possível excluir!";
+            return redirect()->route('app.fornecedor');
+        }*/
+
+        
+    }
 }
