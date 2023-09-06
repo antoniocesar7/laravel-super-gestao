@@ -21,8 +21,9 @@
                     <form method="POST" action="{{route('produto.store')}}" >
                         
                         @csrf
-                        <input type="text" name="nome" placeholder="Nome" value="" class="borda-preta">
-                        
+                        <input type="text" name="nome" placeholder="Nome" value="{{old('nome')}}" class="borda-preta">
+                        {{$errors->has('nome') ? $errors->first('nome') : ''}}
+
 
                         <input type="text" name="descricao" placeholder="Descrição" value="" class="borda-preta">
                        
