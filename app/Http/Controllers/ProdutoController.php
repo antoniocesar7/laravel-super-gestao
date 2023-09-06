@@ -42,6 +42,21 @@ return view('app.produto.index',['produtos' => $produtos,'request' => $request->
     public function store(Request $request)
     {
         //
+        Produto::create($request->all());
+        return redirect()->route('produto.index');
+
+        //ou poderia fazer assim:
+        /*
+          $produto = new Produto();
+          $nome = $request->get('nome');
+          $descricao = $request->get('descricao');
+
+          $nome = uppercase($nome);
+
+          $produto->nome = $nome;
+          $produto->descricao = $descricao;
+          $produto->save();
+        */ 
     }
 
     /**
