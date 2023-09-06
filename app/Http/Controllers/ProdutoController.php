@@ -100,6 +100,8 @@ return view('app.produto.index',['produtos' => $produtos,'request' => $request->
     public function edit(Produto $produto)
     {
         //
+        $unidades = Unidade::all();
+        return view('app.produto.edit',['produto' => $produto, 'unidades' => $unidades]);
     }
 
     /**
