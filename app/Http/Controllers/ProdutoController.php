@@ -114,6 +114,12 @@ return view('app.produto.index',['produtos' => $produtos,'request' => $request->
     public function update(Request $request, Produto $produto)
     {
         //
+        /*print_r($request->all());//payload
+        echo '<br><br><br>';
+        print_r($produto->getAttributes());*/ //instância do objeto no estado anterior//
+
+        $produto->update($request->all());
+        return redirect()->route('produto.show',['produto' => $produto->id]);
     }
 
     /**
