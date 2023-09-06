@@ -131,5 +131,8 @@ return view('app.produto.index',['produtos' => $produtos,'request' => $request->
     public function destroy(Produto $produto)
     {
         //
+        //dd($produto);
+        $produto->delete();
+        return redirect()->route('produto.index');
     }
 }
