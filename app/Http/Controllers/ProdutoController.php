@@ -101,7 +101,8 @@ return view('app.produto.index',['produtos' => $produtos,'request' => $request->
     {
         //
         $unidades = Unidade::all();
-        return view('app.produto.edit',['produto' => $produto, 'unidades' => $unidades]);
+        //return view('app.produto.edit',['produto' => $produto, 'unidades' => $unidades]);
+        return view('app.produto.create',['produto' => $produto, 'unidades' => $unidades]);
     }
 
     /**
