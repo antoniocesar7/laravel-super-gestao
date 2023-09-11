@@ -53,6 +53,7 @@ Route::middleware('autenticacao:padrao,visitante,p3,p4')->prefix('/app')->group(
 
         //rota produtos
         Route::resource('produto','ProdutoController');
+        Route::resource('produto-detalhe','ProdutoDetalheController');
 });
 
 //Route::get('/teste/{p1}/{p1}','TesteController@teste')->name('teste');
