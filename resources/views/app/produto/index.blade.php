@@ -40,9 +40,9 @@
                                     <td>{{$produto->descricao}}</td>
                                     <td>{{$produto->peso}}</td>
                                     <td>{{$produto->unidade_id}}</td>
-                                    <td>{{$produto->comprimento ?? ''}}</td>
-                                    <td>{{$produto->altura ?? ''}}</td>
-                                    <td>{{$produto->largura ?? ''}}</td>
+                                    <td>{{$produto->ProdutoDetalhe->comprimento ?? ''}}</td>
+                                    <td>{{$produto->ProdutoDetalhe->altura ?? ''}}</td>
+                                    <td>{{$produto->ProdutoDetalhe->largura ?? ''}}</td>
                                     <td><a href="{{route('produto.show',['produto' => $produto->id])}}">Visualizar</a></td>
                                     <td><a href="{{route('produto.edit',['produto' => $produto->id])}}">Editar</a></td>
                                     <td>
@@ -60,14 +60,7 @@
 
                     {{$produtos->appends($request)->links()}}
                     <br>
-                    {{-- {{print_r($request)}} --}}
-                    {{-- {{$produtos->count()}} - Total de registros por página
-                    <br>
-                    {{$produtos->total()}} - Total de registros da consulta
-                    <br>
-                    {{$produtos->firstItem()}} - Número do primeiro registro da página
-                    <br>
-                    {{$produtos->lastItem()}} - Número do último registro da página --}}
+                    
 
                     Exibindo {{$produtos->count()}} produtos de {{$produtos->total()}} (de {{$produtos->firstItem()}} a {{$produtos->lastItem()}} )
                     
