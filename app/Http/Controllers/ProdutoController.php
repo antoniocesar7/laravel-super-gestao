@@ -19,7 +19,7 @@ class ProdutoController extends Controller
     {
         
         //$produtos = Produto::paginate(10);
-        $produtos = Item::with(['ItemDetalhe'])->paginate(10);
+        $produtos = Item::with(['ItemDetalhe','fornecedor'])->paginate(10);
         
 
 
