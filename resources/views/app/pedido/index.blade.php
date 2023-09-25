@@ -54,10 +54,7 @@
                     {{$pedidos->appends($request)->links()}}
                     <br>
 
-                    {{$pedidos->count()}}
-                    {{$pedidos->total()}}
-                    {{$pedidos->firstItem()}}
-                    {{$pedidos->lastItem()}}
+                    
                     
                     Exibindo {{$pedidos->count()}} pedidos de {{$pedidos->total()}}
                     
