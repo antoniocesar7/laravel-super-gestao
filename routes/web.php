@@ -59,8 +59,9 @@ Route::middleware('autenticacao:padrao,visitante,p3,p4')->prefix('/app')->group(
         //Route::resource('pedido-produto','PedidoProdutoController');
         Route::get('pedido-produto/create/{pedido}','PedidoProdutoController@create')->name('pedido-produto.create');
         Route::post('pedido-produto/store/{pedido}','PedidoProdutoController@store')->name('pedido-produto.store');
+        Route::delete('pedido-produto/destroy/{pedido}/{produto}','PedidoProdutoController@destroy')->name('pedido-produto.destroy');
 
-
+        
 });
 
 //Route::get('/teste/{p1}/{p1}','TesteController@teste')->name('teste');

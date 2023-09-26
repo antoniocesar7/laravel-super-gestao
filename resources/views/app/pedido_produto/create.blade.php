@@ -31,6 +31,7 @@
                             <th>Nome do produto</th>
                             <th>Data inclusão item pedido</th>
                             <th>Data atualização item pedido</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,6 +41,19 @@
                                 <td>{{ $produto->nome }}</td>
                                 <td>{{ $produto->pivot->created_at->format('d/m/Y') }}</td>
                                 <td>{{ $produto->pivot->updated_at->format('d/m/Y') }}</td>
+                                <td>
+                                    <form 
+                                        id="form_{{$pedido->id}}_{{$produto->id}}" 
+                                        method="POST" 
+                                        action="{{
+                                            route('pedido-produto.destroy',['pedido' => $pedido->id, 'produto' => $produto->id])
+                                        }}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <a href="#" onclick="document.getElementById('form_{{$pedido->id}}_{{$produto->id}}').submit()">Excluir</a>
+                                    </form>
+                                    
+                                </td>
                             </tr>
                         @endforeach
                     <tbody>
